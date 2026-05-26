@@ -1,0 +1,4 @@
+requests
+schedule
+snowflake-connector-python
+azure.functions
