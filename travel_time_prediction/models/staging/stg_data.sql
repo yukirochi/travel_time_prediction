@@ -5,6 +5,10 @@ WITH data_raw AS (
 cleaned AS (
     SELECT
         CONVERT_TIMEZONE('UTC', 'Asia/Manila', timestamp::timestamp) AS timestamp,
+        departure_time,
+        arrival_time,
+        traffic_delay_in_seconds,
+        traffic_length_in_meters,
         CASE EXTRACT(DAYOFWEEK_ISO FROM departure_time::timestamp)
             WHEN 1 THEN 'monday'
             WHEN 2 THEN 'tuesday'
@@ -15,13 +19,10 @@ cleaned AS (
             WHEN 7 THEN 'sunday'
             ELSE 'None'
         END AS day,
-        departure_time,
-        arrival_time,
-        traffic_delay_in_seconds,
-        traffic_length_in_meters,
         length_in_meters,
         travel_time_in_seconds
     FROM data_raw
+    WHERE length_in_meters > 19000
 )
 
 SELECT * FROM cleaned
