@@ -5,22 +5,14 @@ WITH data_raw AS (
 cleaned AS (
     SELECT
         CONVERT_TIMEZONE('UTC', 'Asia/Manila', timestamp::timestamp) AS timestamp,
-        departure_time,
-        arrival_time,
-        traffic_delay_in_seconds,
-        traffic_length_in_meters,
-        CASE EXTRACT(DAYOFWEEK_ISO FROM departure_time::timestamp)
-            WHEN 1 THEN 'monday'
-            WHEN 2 THEN 'tuesday'
-            WHEN 3 THEN 'wednesday'
-            WHEN 4 THEN 'thursday'
-            WHEN 5 THEN 'friday'
-            WHEN 6 THEN 'saturday'
-            WHEN 7 THEN 'sunday'
-            ELSE 'None'
-        END AS day,
-        length_in_meters,
-        travel_time_in_seconds
+        ROUND(DATEDIFF(second, '00:00:00'::time, departure_time::time) / 3600.0, 2) AS departure_time,
+        ROUND(DATEDIFF(second, '00:00:00'::time, arrival_time::time) / 3600.0, 2) AS arrival_time,
+        EXTRACT(DAYOFWEEK_ISO FROM departure_time::timestamp) AS day_of_week,
+        ROUND(travel_time_in_seconds / 60.0, 2) AS travel_time_in_minutes,
+        CASE 
+            WHEN traffic_length_in_meters > 0 THEN 1 
+            ELSE 0
+        END AS has_traffic
     FROM data_raw
     WHERE length_in_meters > 19000
 )

@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: stg  # This is the alias/nickname you use in your SQL
+    database: training_data    # The actual database name in Snowflake
+    schema: staging   # The actual schema name in Snowflake
+    
+    tables:
+      - name: stg_data      # The actual table name in Snowflake

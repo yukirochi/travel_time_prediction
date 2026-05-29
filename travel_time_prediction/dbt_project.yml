@@ -31,6 +31,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   travel_time_prediction:
+    staging:
+      +schema: staging
+    mart:
+      +schema: mart
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
