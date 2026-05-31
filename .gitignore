@@ -3,3 +3,6 @@
 .idea/
 logs/
 travel_time_prediction.egg-info/
+
+model/__pycache__
+model/snowflake_info.py
