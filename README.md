@@ -375,39 +375,21 @@ travel_time_prediction/
 
 ---
 
-## Future Enhancements
-
-- [ ] Deploy orchestrator to Azure Data Factory or Synapse
-- [ ] Implement more advanced ML models (XGBoost, Neural Networks)
-- [ ] Add real-time prediction API
-- [ ] Implement A/B testing framework
-- [ ] Add data quality monitoring and alerting
-- [ ] Create BI dashboards in Power BI/Tableau
-- [ ] Containerize with Docker for consistency
-
----
-
 ## Troubleshooting
 
-**Issue:** Scraper fails to insert data  
+**Issue:** Scraper fails to insert data
 **Solution:** Check environment variables, verify Snowflake credentials and connectivity
 
-**Issue:** dbt run fails with SQL errors  
+**Issue:** dbt run fails with SQL errors
 **Solution:** Verify Snowflake schema/table names, check data types in staging layer
 
-**Issue:** Model training fails with "No data"  
+**Issue:** Model training fails with "No data"
 **Solution:** Ensure mart_data table exists and has records, check Snowflake query
 
-**Issue:** Orchestrator can't find directories  
+**Issue:** Orchestrator can't find directories
 **Solution:** Run from project root, ensure directory structure matches (fixed in v1.1)
 
 ---
 
-## Contact & Support
-
-For questions or issues, refer to individual component documentation or contact the engineering team.
-
----
-
-**Last Updated:** June 2, 2026  
+**Last Updated:** June 2, 2026
 **Version:** 1.1
