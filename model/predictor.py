@@ -28,6 +28,7 @@ input_trip = pd.DataFrame({
     'DAY_OF_WEEK': [1],  # Monday
     'DEPARTURE_TIME': [2.51] 
 })
-
+ 
 predicted_time = regressor.predict(input_trip)
+print(f"input_trip: {input_trip.to_dict(orient='records')[0]}")
 print(f"Predicted Travel Time: {predicted_time[0]:.2f} minutes")
