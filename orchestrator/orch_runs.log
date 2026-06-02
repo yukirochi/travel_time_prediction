@@ -1,0 +1,28 @@
+2026-06-02 15:51:47,504 - INFO - Starting DBT Models...
+2026-06-02 15:52:55,810 - INFO - Starting DBT Models...
+2026-06-02 15:53:14,461 - INFO - DBT Models completed successfully.
+07:52:59  Running with dbt=1.11.11
+07:53:03  Registered adapter: snowflake=1.11.5
+07:53:05  [WARNING]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.travel_time_prediction.example
+07:53:05  Found 2 models, 2 sources, 536 macros
+07:53:05  
+07:53:05  Concurrency: 1 threads (target='dev')
+07:53:06  
+07:53:11  1 of 2 START sql view model staging_staging.stg_data ........................... [RUN]
+07:53:12  1 of 2 OK created sql view model staging_staging.stg_data ...................... [SUCCESS 1 in 0.68s]
+07:53:12  2 of 2 START sql view model staging_mart.mart_data ............................. [RUN]
+07:53:12  2 of 2 OK created sql view model staging_mart.mart_data ........................ [SUCCESS 1 in 0.28s]
+07:53:13  
+07:53:13  Finished running 2 view models in 0 hours 0 minutes and 7.18 seconds (7.18s).
+07:53:13  
+07:53:13  Completed successfully
+07:53:13  
+07:53:13  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=2
+
+2026-06-02 15:53:14,461 - INFO - Starting Predictor Script...
+2026-06-02 15:53:28,362 - INFO - Predictor Script completed successfully.
+Mean Absolute Error: 1.55 minutes
+Predicted Travel Time: 57.13 minutes
+
